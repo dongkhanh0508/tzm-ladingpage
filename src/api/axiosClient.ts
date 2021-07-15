@@ -13,7 +13,8 @@ const axiosClient = axios.create({
     paramsSerializer: params => queryString.stringify(params),
 });
 axiosClient.interceptors.request.use(async (config: AxiosRequestConfig) => {
-    // Handle token here ...
+    var jwt = localStorage.getItem('access_token');
+    config.headers.common = { 'Authorization': `Bearer ${jwt}` }
     return config;
 })
 axiosClient.interceptors.response.use((response: AxiosResponse) => {
