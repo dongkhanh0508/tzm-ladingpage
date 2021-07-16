@@ -14,6 +14,7 @@
         "tem2": "template 2",
         "btnClose": "Close",
         "btnDownloadQR": "Download QR Code",
-        "poi": "Point of interest"
+        "poi": "Point of interest",
+        "login":"LOGIN"
     }
 }

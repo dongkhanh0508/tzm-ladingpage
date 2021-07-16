@@ -13,13 +13,15 @@ import i18n from 'translation/i18n';
 export default function Sidebar() {
   const [showSidebar, setShowSidebar] = useState('-left-64');
   const { t } = useTranslation();
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const lg = localStorage.getItem('language');
+  const [selectedIndex, setSelectedIndex] = useState(lg === 'vi' || lg === null ? 0 : 1);
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
     index === 0 ? changeLanguage('vi') : changeLanguage('en');
   };
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    localStorage.setItem('language', lng);
   };
   return (
     <>

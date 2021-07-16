@@ -14,13 +14,17 @@ const resources = {
     translation: translationVI,
   },
 };
-
+const lg = localStorage.getItem('language');
+let defaultLg = 'vi';
+if (lg) {
+  defaultLg = lg;
+}
 i18n
   .use(Backend)
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'vi',
+    fallbackLng: defaultLg,
     debug: true,
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
