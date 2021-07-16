@@ -1,48 +1,82 @@
+import Button from '@material-tailwind/react/Button';
 import Card from '@material-tailwind/react/Card';
-import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
 import CardFooter from '@material-tailwind/react/CardFooter';
-import H5 from '@material-tailwind/react/Heading5';
 import InputIcon from '@material-tailwind/react/InputIcon';
-import Checkbox from '@material-tailwind/react/Checkbox';
-import Button from '@material-tailwind/react/Button';
-import Page from 'components-templates/login/Page';
+import { useAppDispatch } from 'app/hooks';
 import DefaultNavbar from 'components-templates/DefaultNavbar';
 import Container from 'components-templates/login/Container';
+import Page from 'components-templates/login/Page';
 import SimpleFooter from 'components-templates/SimpleFooter';
+import { authAction } from 'features/auth/authSlice';
+import { useState } from 'react';
 
 export default function Login() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorUsername, setErrorUsername] = useState(false);
+  const [errorPassword, setErrorPassword] = useState(false);
+  const dispatch = useAppDispatch();
+
+  const handelClick = () => {
+    if (username === '') {
+      setErrorUsername(true);
+      return;
+    } else {
+      setErrorUsername(false);
+    }
+    if (password === '') {
+      setErrorPassword(true);
+      return;
+    } else {
+      setErrorPassword(false);
+    }
+    dispatch(
+      authAction.login({
+        username: username,
+        password: password,
+      })
+    );
+  };
   return (
     <Page>
       <DefaultNavbar />
       <Container>
         <Card>
-          <CardHeader color="lightBlue">
-            <H5 color="white" style={{ marginBottom: 0 }}>
-              Login
-            </H5>
-          </CardHeader>
-
           <CardBody>
             <div className="mb-12 px-4 bg-bb">
               <InputIcon
-                type="email"
+                error={errorUsername ? 'username is require' : ''}
+                type="text"
                 color="lightBlue"
-                placeholder="Email Address"
-                iconName="email"
+                placeholder="Username"
+                iconName="people"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </div>
             <div className="mb-8 px-4">
-              <InputIcon type="password" color="lightBlue" placeholder="Password" iconName="lock" />
-            </div>
-            <div className="mb-4 px-4">
-              <Checkbox color="lightBlue" text="Remember Me" id="remember" />
+              <InputIcon
+                error={errorPassword ? 'password is require' : ''}
+                type="password"
+                color="lightBlue"
+                placeholder="Password"
+                iconName="lock"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
           </CardBody>
           <CardFooter>
             <div className="flex justify-center bg-bb">
-              <Button color="lightBlue" buttonType="link" size="lg" ripple="dark">
-                Get Started
+              <Button
+                color="lightBlue"
+                buttonType="link"
+                size="lg"
+                ripple="dark"
+                onClick={handelClick}
+              >
+                Submit
               </Button>
             </div>
           </CardFooter>

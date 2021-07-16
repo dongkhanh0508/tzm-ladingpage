@@ -1,0 +1,20 @@
+{
+    "content": {
+       "dashboard": "Bảng điều khiển",
+        "settings": "Cài đặt",
+        "stores": "Cửa hàng",
+        "map": "Bản đồ",
+        "profile": "Cá nhân",
+        "templates": "Mẫu",
+        "languages":"Ngôn ngữ",
+        "selectStore":"Chọn cửa hàng",
+        "listTemplate": "Danh sách mẫu",
+        "preview": "Xem trước",
+        "tem1": "mẫu 1",
+        "tem2": "mẫu 2",
+        "btnClose": "Đóng",
+        "btnDownloadQR": "Tải QR Code",
+        "poi": "Địa điểm quan tâm",
+        "login":"ĐĂNG NHẬP"
+    }
+}

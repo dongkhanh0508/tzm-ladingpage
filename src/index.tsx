@@ -1,3 +1,4 @@
+import { CssBaseline } from '@material-ui/core';
 import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -8,12 +9,18 @@ import { store } from './app/store';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
+import i18n from 'translation/i18n';
+import { I18nextProvider } from 'react-i18next';
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ConnectedRouter history={history}>       
-        <App />
-      </ConnectedRouter>     
+      <ConnectedRouter history={history}>
+        <CssBaseline />
+        <I18nextProvider i18n={i18n}>
+          <App />
+        </I18nextProvider>
+      </ConnectedRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
