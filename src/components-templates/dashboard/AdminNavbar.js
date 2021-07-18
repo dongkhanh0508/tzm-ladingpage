@@ -9,7 +9,7 @@ import { useLocation } from 'react-router-dom';
 
 export default function AdminNavbar({ showSidebar, setShowSidebar }) {
   const location = useLocation().pathname;
-
+  //const { t } = useTranslation();
   return (
     <nav className="bg-light-blue-500 md:ml-64 py-6 px-3">
       <div className="container max-w-full mx-auto flex items-center justify-between md:pr-8 md:pl-10">
@@ -50,7 +50,33 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
           </h4>
 
           <div className="flex">
-            <H6 color="white">Nguyen Dong Khanh</H6>
+            {/* <Link to="/dashboard" exact>
+              <NavLink ripple="light" style={{ cursor: 'pointer' }}>
+                <Icon name="dashboard" size="2xl" />
+                &nbsp;{t('content.dashboard')}
+              </NavLink>
+            </Link>
+            <Link to="/dashboard" exact>
+              <NavLink ripple="light" style={{ cursor: 'pointer' }}>
+                <Icon name="dashboard" size="2xl" />
+                &nbsp;{t('content.dashboard')}
+              </NavLink>
+            </Link>
+            <Link to="/dashboard" exact>
+              <NavLink ripple="light" style={{ cursor: 'pointer' }}>
+                <Icon name="dashboard" size="2xl" />
+                &nbsp;{t('content.dashboard')}
+              </NavLink>
+            </Link>
+            <Link to="/dashboard" exact>
+              <NavLink ripple="light" style={{ cursor: 'pointer' }}>
+                <Icon name="dashboard" size="2xl" />
+                &nbsp;{t('content.dashboard')}
+              </NavLink>
+            </Link> */}
+            <H6 color="white" style={{ display: 'flex', alignItems: 'center' }}>
+              Nguyen Dong Khanh
+            </H6>
 
             <div className="-mr-4 ml-6">
               <Dropdown

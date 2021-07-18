@@ -13,9 +13,14 @@ export interface Store {
     timeSlot: string;
     geom: Geom;
     storeTypeName: string;
+    imageUrl?: string;
 }
 
 export interface Geom {
     type: string;
     coordinates: number[];
+}
+export interface StoreType {
+    id: number;
+    name: string;
 }
