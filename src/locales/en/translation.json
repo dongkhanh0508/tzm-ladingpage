@@ -1,20 +1,30 @@
 {
-    "content": {
-        "dashboard": "Dashboard",
-        "settings": "Settings",
-        "stores": "Stores",
-        "map": "Map",
-        "profile": "Profile",
-        "templates": "Template",
-        "languages":"Languages",
-        "selectStore":"Select Store",
-        "listTemplate": "Templates",
-        "preview": "Preview",
-        "tem1": "template 1",
-        "tem2": "template 2",
-        "btnClose": "Close",
-        "btnDownloadQR": "Download QR Code",
-        "poi": "Point of interest",
-        "login":"LOGIN"
-    }
+  "content": {
+    "dashboard": "Dashboard",
+    "settings": "Settings",
+    "stores": "Stores",
+    "map": "Map",
+    "profile": "Profile",
+    "templates": "Template",
+    "languages": "Languages",
+    "selectStore": "Select Store",
+    "listTemplate": "Templates",
+    "preview": "Preview",
+    "tem1": "template 1",
+    "tem2": "template 2",
+    "btnClose": "Close",
+    "btnDownloadQR": "Download QR Code",
+    "poi": "Point of interest",
+    "login": "LOGIN"
+  },
+  "map": {
+    "locate": "Show me where I am, yo!"
+  },
+  "store": {
+    "storeName": "Store name",
+    "address": "Address",
+    "storeTypeName": "Store type",
+    "status": "Status",
+    "actions": "Actions"
+  }
 }
