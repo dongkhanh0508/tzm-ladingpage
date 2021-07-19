@@ -1,5 +1,5 @@
 import { storeActions } from './storeSlice';
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, debounce, put, takeLatest } from "redux-saga/effects";
 import { PaginationRequest, Response, Store, StoreType } from 'models';
 import storeApi from 'api/storeApi';
 import { PayloadAction } from '@reduxjs/toolkit';
@@ -23,8 +23,13 @@ function* fetchStoreType() {
         console.log(error);
     }
 }
+function* searchWithDebounce(action: PayloadAction<PaginationRequest>) {
+    console.log(action.payload);
+    yield put(storeActions.setFilter(action.payload));
+}
 export default function* storeSaga() {
     //watch fetch student action
     yield takeLatest(storeActions.fetchStores.type, fetchStore);
     yield takeLatest(storeActions.fetchStoreType.type, fetchStoreType);
+    yield debounce(500, storeActions.setFilterWithDebounce.type, searchWithDebounce)
 }

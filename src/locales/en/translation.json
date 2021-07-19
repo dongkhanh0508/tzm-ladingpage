@@ -25,6 +25,19 @@
     "address": "Address",
     "storeTypeName": "Store type",
     "status": "Status",
-    "actions": "Actions"
+    "actions": "Actions",
+    "none": "None",
+    "title": "Store Management",
+    "details": "Details",
+    "remove": "Remove"
+  },
+  "status": {
+    "all": "All",
+    "approved": "Approved",
+    "needSurvey": "Need survey",
+    "needApprove": "Need approval",
+    "waitingUpdate": "Waiting Update",
+    "deleted": "Deleted",
+    "rejected": "Rejected"
   }
 }

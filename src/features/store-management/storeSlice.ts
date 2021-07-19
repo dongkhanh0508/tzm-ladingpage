@@ -45,7 +45,9 @@ const storeSlice = createSlice({
         fetchStoreTypeError(state) { },
         setFilter(state, action: PayloadAction<PaginationRequest>) {
             state.filter = action.payload;
-        }
+        },
+        setFilterWithDebounce(state, action: PayloadAction<PaginationRequest>) {
+        },
     }
 });
 //actions

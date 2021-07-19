@@ -25,6 +25,19 @@
     "address": "Địa chỉ",
     "storeTypeName": "Loại cửa hàng",
     "status": "Trạng thái",
-    "actions": "Hành động"
+    "actions": "Hành động",
+    "none": "Chưa khởi tạo",
+    "title": "Quản lí cửa hàng",
+    "details": "Chi tiết",
+    "remove": "Xóa"
+  },
+  "status": {
+    "all": "Tất cả",
+    "approved": "Đã xác nhận",
+    "needSurvey": "Cần khảo sát",
+    "needApprove": "Cần xác nhận",
+    "waitingUpdate": "Cần cập nhật",
+    "deleted": "Đã xóa",
+    "rejected": "Đã bị từ chối"
   }
 }
