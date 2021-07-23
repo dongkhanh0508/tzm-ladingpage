@@ -1,5 +1,4 @@
 import {
-  Box,
   Grid,
   Table,
   TableCell,
@@ -9,11 +8,11 @@ import {
   TableSortLabel,
 } from '@material-ui/core';
 import { Pagination } from '@material-ui/lab';
-import { PaginationRequest, Response, Store } from 'models';
+import { PaginationRequest, Response } from 'models';
 import * as React from 'react';
 
 interface useTableProps {
-  rs: Response<Store>;
+  rs: Response<any>;
   headCells: any;
   filter: PaginationRequest;
   onPageChange: (newPage: number) => void;

@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next';
 export interface Status {
+    id?: number;
     name: string;
-    color: string;
+    color?: string;
 }
 export interface StatusMap {
     [key: number]: Status
@@ -19,5 +20,13 @@ export function GetStatusMap() {
         5: { name: t('status.deleted'), color: 'red' },
         6: { name: t('status.rejected'), color: 'red' },
     }
-    return statusMap;
+    const statusFilter: Status[] = [
+        { id: 1, name: t('status.approved') },
+        { id: 2, name: t('status.needSurvey') },
+        { id: 3, name: t('status.needApprove') },
+        { id: 4, name: t('status.waitingUpdate') },
+        { id: 5, name: t('status.deleted') },
+        { id: 6, name: t('status.rejected') }
+    ]
+    return { statusMap, statusFilter };
 }

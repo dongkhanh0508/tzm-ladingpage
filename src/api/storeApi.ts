@@ -1,3 +1,4 @@
+import { PostStore } from './../models/dto/store';
 import { PaginationRequest, Response, Store, StoreAttrs, StoreType } from "models";
 import axiosClient from "./axiosClient";
 import { FetchAttrs } from 'features/template/templateSlice';
@@ -18,6 +19,22 @@ const storeApi = {
     getStoreTypes(): Promise<StoreType[]> {
         const url = '/stores/store-type';
         return axiosClient.get(url);
-    }
+    },
+    remove(id: number): Promise<Store> {
+        const url = `/stores/brand/${id}`;
+        return axiosClient.delete(url);
+    },
+    getStoreById(id: string): Promise<Store> {
+        const url = `/stores/${id}`;
+        return axiosClient.get(url);
+    },
+    add(data: PostStore): Promise<Store> {
+        const url = '/stores/brand';
+        return axiosClient.post(url, data);
+    },
+    update(id: number, data: PostStore): Promise<Store> {
+        const url = `/stores/for-brand/${id}`;
+        return axiosClient.put(url, data);
+    },
 }
 export default storeApi;

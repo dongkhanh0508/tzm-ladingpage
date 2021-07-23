@@ -1,3 +1,4 @@
+import { RootState } from './../../app/store';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AuthRequest } from "models";
 import { User } from "models/dto/user";
@@ -34,5 +35,6 @@ const authSlice = createSlice({
     }
 });
 export const authAction = authSlice.actions;
+export const selectAuthLoading = (state: RootState) => state.auth.logging;
 const authReducer = authSlice.reducer;
 export default authReducer;

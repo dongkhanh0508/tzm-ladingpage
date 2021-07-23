@@ -3,20 +3,22 @@ import { Box, Grid } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import { PaginationRequest } from 'models';
 import React, { ChangeEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 
-interface StudentFilterProps {
+interface StoreFilterProps {
   filter: PaginationRequest;
 
   onChange?: (newFilter: PaginationRequest) => void;
   onSearchChange?: (newFilter: PaginationRequest) => void;
 }
 
-export default function StoreFilter({ filter, onChange, onSearchChange }: StudentFilterProps) {
+export default function StoreFilter({ filter, onChange, onSearchChange }: StoreFilterProps) {
+  const { t } = useTranslation();
   const handelSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (!onSearchChange) return;
     const newFilter = {
       ...filter,
-      keySearch: e.target.value,
+      keySearch: e.target.value === '' ? undefined : e.target.value,
     };
     onSearchChange(newFilter);
   };
@@ -39,7 +41,7 @@ export default function StoreFilter({ filter, onChange, onSearchChange }: Studen
               color="lightBlue"
               size="regular"
               outline={true}
-              placeholder="Outline Input with Icon"
+              placeholder={t('store.search')}
               iconFamily="material-icons"
               iconName="search"
               onChange={handelSearchChange}

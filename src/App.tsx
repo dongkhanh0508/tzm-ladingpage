@@ -5,12 +5,13 @@ import 'assets/styles/tailwind.css';
 import { PrivateRoute } from 'components/Common/PrivateRoute';
 import DashboardIndex from 'features/dashboard/pages';
 import Landing from 'features/landingpage/pages/Landing';
-import Login from 'features/landingpage/pages/Login';
+import Login from 'features/auth/Login';
 import Profile from 'features/landingpage/pages/Profile';
 import Register from 'features/landingpage/pages/Register';
 import BioPage from 'features/template/BioPage';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+//import '@sweetalert2/theme-material-ui/material-ui.scss';
 
 function App() {
   return (

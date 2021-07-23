@@ -14,6 +14,8 @@ export interface Store {
     geom: Geom;
     storeTypeName: string;
     imageUrl?: string;
+    storeTypeId?: number;
+    storeCode?: string;
 }
 
 export interface Geom {
@@ -23,4 +25,13 @@ export interface Geom {
 export interface StoreType {
     id: number;
     name: string;
+}
+export interface PostStore {
+    name: string;
+    brandId?: number;
+    address: string;
+    coordinateString: string;
+    imageUrl?: string;
+    storeCode: string;
+    storeTypeId: number;
 }

@@ -4,12 +4,20 @@ import DropdownItem from '@material-tailwind/react/DropdownItem';
 import H6 from '@material-tailwind/react/Heading6';
 import Icon from '@material-tailwind/react/Icon';
 import Image from '@material-tailwind/react/Image';
+import { useAppDispatch } from 'app/hooks';
 import ProfilePicture from 'assets/img/team-1-800x800.jpg';
+import { authAction } from 'features/auth/authSlice';
+import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
 export default function AdminNavbar({ showSidebar, setShowSidebar }) {
+  const user = JSON.parse(localStorage.getItem('user'));
   const location = useLocation().pathname;
-  //const { t } = useTranslation();
+  const dispath = useAppDispatch();
+  const handelLogout = () => {
+    dispath(authAction.logout());
+  };
+  const { t } = useTranslation();
   return (
     <nav className="bg-light-blue-500 md:ml-64 py-6 px-3">
       <div className="container max-w-full mx-auto flex items-center justify-between md:pr-8 md:pl-10">
@@ -75,7 +83,7 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
               </NavLink>
             </Link> */}
             <H6 color="white" style={{ display: 'flex', alignItems: 'center' }}>
-              Nguyen Dong Khanh
+              {user.fullname}
             </H6>
 
             <div className="-mr-4 ml-6">
@@ -83,7 +91,7 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                 color="transparent"
                 buttonText={
                   <div className="w-12">
-                    <Image src={ProfilePicture} rounded />
+                    <Image src={user.imageUrl ? user.imageUrl : ProfilePicture} rounded />
                   </div>
                 }
                 rounded
@@ -94,7 +102,9 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
               >
                 <DropdownItem color="lightBlue">Action</DropdownItem>
                 <DropdownItem color="lightBlue">Another Action</DropdownItem>
-                <DropdownItem color="lightBlue">Something Else</DropdownItem>
+                <DropdownItem color="lightBlue" onClick={handelLogout}>
+                  {t('common.logout')}
+                </DropdownItem>
               </Dropdown>
             </div>
           </div>

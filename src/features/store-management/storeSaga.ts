@@ -31,5 +31,5 @@ export default function* storeSaga() {
     //watch fetch student action
     yield takeLatest(storeActions.fetchStores.type, fetchStore);
     yield takeLatest(storeActions.fetchStoreType.type, fetchStoreType);
-    yield debounce(500, storeActions.setFilterWithDebounce.type, searchWithDebounce)
+    yield debounce(800, storeActions.setFilterWithDebounce.type, searchWithDebounce)
 }
