@@ -1,6 +1,7 @@
 // api/axiosClient.js
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 import queryString from 'query-string';
+import { push } from 'connected-react-router';
 // Set up default config for http requests here
 
 
@@ -14,6 +15,14 @@ const axiosClient = axios.create({
 });
 axiosClient.interceptors.request.use(async (config: AxiosRequestConfig) => {
     var jwt = localStorage.getItem('access_token');
+    var exp = Number(localStorage.getItem('time_expire'));
+    if (exp < Date.now() / 1000) {
+
+        localStorage.removeItem("access_token");
+        localStorage.removeItem("user");
+        localStorage.removeItem("time_expire");
+        push('/login');
+    }
     config.headers.common = { 'Authorization': `Bearer ${jwt}` }
     return config;
 })

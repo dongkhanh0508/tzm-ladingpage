@@ -7,7 +7,7 @@ import NavbarCollapse from '@material-tailwind/react/NavbarCollapse';
 import NavbarContainer from '@material-tailwind/react/NavbarContainer';
 import NavbarToggler from '@material-tailwind/react/NavbarToggler';
 import NavbarWrapper from '@material-tailwind/react/NavbarWrapper';
-import NavLink from '@material-tailwind/react/NavLink';
+import NavLinkCustom from 'components/Common/NavLinkCustom';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -29,11 +29,11 @@ export default function DefaultNavbar() {
         <NavbarCollapse open={openNavbar}>
           <Nav>
             <div className="flex flex-col z-50 lg:flex-row lg:items-center">
-              <Link to="/dashboard" exact>
-                <NavLink ripple="light" style={{ cursor: 'pointer' }}>
+              <Link to="/dashboard">
+                <NavLinkCustom ripple="light" style={{ cursor: 'pointer' }}>
                   <Icon name="dashboard" size="2xl" />
                   &nbsp;{t('content.dashboard')}
-                </NavLink>
+                </NavLinkCustom>
               </Link>
               {/* <NavLink
                 href="https://github.com/creativetimofficial/material-tailwind/issues?ref=mtk"

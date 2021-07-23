@@ -6,6 +6,7 @@ import 'leaflet-geosearch/assets/css/leaflet.css';
 
 export default function LocationMarker() {
   const map = useMap();
+
   useEffect(() => {
     const lc = new Locate({
       icon: 'far fa-dot-circle',

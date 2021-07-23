@@ -1,6 +1,9 @@
 import { Action, combineReducers, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
+import adminLevelReducer from 'features/admin-level/adminLevelSlice';
 import authReducer from 'features/auth/authSlice';
+import poiBrandReducer from 'features/poi/poiBrandSlice';
+import poiReducer from 'features/poi/poiSlice';
 import storeReducer from 'features/store-management/storeSlice';
 import templateReducer from 'features/template/templateSlice';
 import createSagaMiddleware from 'redux-saga';
@@ -12,6 +15,9 @@ const rootReducer = combineReducers({
   auth: authReducer,
   template: templateReducer,
   stores: storeReducer,
+  poi: poiReducer,
+  adminLevel: adminLevelReducer,
+  poiBrands: poiBrandReducer,
 })
 
 const sagaMiddleware = createSagaMiddleware();

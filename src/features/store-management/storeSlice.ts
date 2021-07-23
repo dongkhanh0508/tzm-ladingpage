@@ -45,7 +45,9 @@ const storeSlice = createSlice({
         fetchStoreTypeError(state) { },
         setFilter(state, action: PayloadAction<PaginationRequest>) {
             state.filter = action.payload;
-        }
+        },
+        setFilterWithDebounce(state, action: PayloadAction<PaginationRequest>) {
+        },
     }
 });
 //actions
@@ -54,6 +56,7 @@ export const storeActions = storeSlice.actions;
 export const selectStoresResponse = (state: RootState) => state.stores.response;
 export const selectLoading = (state: RootState) => state.stores.loading;
 export const selectFilter = (state: RootState) => state.stores.filter;
+export const selectStoreType = (state: RootState) => state.stores.storeTypes;
 
 //reducers
 const storeReducer = storeSlice.reducer;
